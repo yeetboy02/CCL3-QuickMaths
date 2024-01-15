@@ -13,10 +13,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.room.Room
+import com.cc221010.quickmaths.data.scoreDatabase
+import com.cc221010.quickmaths.ui.composables.NavbarView
 import com.cc221010.quickmaths.ui.mainViewModel
 import com.cc221010.quickmaths.ui.theme.QuickMathsTheme
 
 class MainActivity : ComponentActivity() {
+    private val db by lazy {
+        Room.databaseBuilder(this, scoreDatabase::class.java, "ScoreDatabase.db").fallbackToDestructiveMigration().build();
+    }
 
     private val mainViewModel by viewModels<mainViewModel>(
         factoryProducer = {
@@ -36,7 +42,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-
+                    NavbarView(mainViewModel);
                 }
             }
         }
