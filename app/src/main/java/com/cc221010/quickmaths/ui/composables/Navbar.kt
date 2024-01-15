@@ -4,11 +4,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.Icon
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -27,7 +25,7 @@ sealed class Screen(val route: String){
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Navbar(mainViewModel: mainViewModel) {
+fun NavbarView(mainViewModel: mainViewModel) {
     val state = mainViewModel.mainViewState.collectAsState();
     val navController = rememberNavController();
     Scaffold(
