@@ -40,7 +40,7 @@ sealed class Screen(val route: String){
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NavbarView(mainViewModel: mainViewModel) {
+fun NavbarView(mainViewModel:mainViewModel) {
     val state = mainViewModel.mainViewState.collectAsState();
     val navController = rememberNavController();
     Scaffold(
@@ -53,6 +53,7 @@ fun NavbarView(mainViewModel: mainViewModel) {
         ){
             composable(Screen.Home.route){
                 mainViewModel.selectScreen(Screen.Home)
+                Home(mainViewModel = mainViewModel);
             }
             composable(Screen.Highscores.route){
                 mainViewModel.selectScreen(Screen.Highscores)
