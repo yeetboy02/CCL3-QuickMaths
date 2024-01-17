@@ -89,7 +89,7 @@ fun BottomNavigationBar(navController:NavHostController, selectedScreen:Screen) 
                 icon = { Icon(painter = painterResource(id = R.drawable.home), contentDescription = "", modifier = Modifier
                     .width(45.dp)
                     .height(45.dp), tint = MaterialTheme.colorScheme.onPrimary) },
-                colors = NavigationBarItemDefaults.colors(indicatorColor = MaterialTheme.colorScheme.background),
+                colors = NavigationBarItemDefaults.colors(indicatorColor = MaterialTheme.colorScheme.tertiary),
             )
             NavigationBarItem(
                 selected = (selectedScreen == Screen.Highscores),
@@ -97,7 +97,7 @@ fun BottomNavigationBar(navController:NavHostController, selectedScreen:Screen) 
                 icon = { Icon(painter = painterResource(id = R.drawable.highscore), contentDescription = "", modifier = Modifier
                     .width(45.dp)
                     .height(45.dp), tint = MaterialTheme.colorScheme.onPrimary) },
-                colors = NavigationBarItemDefaults.colors(indicatorColor = MaterialTheme.colorScheme.background),
+                colors = NavigationBarItemDefaults.colors(indicatorColor = MaterialTheme.colorScheme.tertiary),
             )
         }
     }
