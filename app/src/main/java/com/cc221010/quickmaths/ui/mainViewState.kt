@@ -7,5 +7,6 @@ data class mainViewState(
     val currEditScore:score? = null,
     val lastScore:score? = null,
     val scores:List<score> = emptyList(),
-    val selectedScreen: Screen = Screen.Home,
+    val selectedScreen:Screen = Screen.Home,
+    val editModalOpen:Boolean = false,
 )
