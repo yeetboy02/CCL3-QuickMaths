@@ -34,4 +34,5 @@ fun Highscores(mainViewModel:mainViewModel) {
     }
 
     editModal(mainViewModel);
+    deleteModal(mainViewModel);
 }
