@@ -123,7 +123,7 @@ fun Home(mainViewModel:mainViewModel) {
                         style = TextStyle(
                             shadow = Shadow(
                                 color = MaterialTheme.colorScheme.tertiary,
-                                offset = Offset(0f, 3f),
+                                offset = Offset(0f, 5f),
                                 blurRadius = 0f
                             )
                         )
@@ -141,7 +141,7 @@ fun Home(mainViewModel:mainViewModel) {
                         style = TextStyle(
                             shadow = Shadow(
                                 color = MaterialTheme.colorScheme.tertiary,
-                                offset = Offset(0f, 3f),
+                                offset = Offset(0f, 5f),
                                 blurRadius = 0f
                             )
                         )
@@ -196,7 +196,7 @@ fun Home(mainViewModel:mainViewModel) {
                     style = TextStyle(
                         shadow = Shadow(
                             color = MaterialTheme.colorScheme.tertiary,
-                            offset = Offset(0f, 3f),
+                            offset = Offset(0f, 5f),
                             blurRadius = 0f
                         )
                     )
