@@ -56,15 +56,27 @@ class mainViewModel(private val dao: scoreDAO): ViewModel() {
         }
     }
 
-    fun editModal(open:Boolean) {
+    fun openEditModal() {
         _mainViewState.update {
-            it.copy(editModalOpen = open);
+            it.copy(editModalOpen = true);
         }
     }
 
-    fun deleteModal(open:Boolean) {
+    fun closeEditModal(edit:Boolean) {
         _mainViewState.update {
-            it.copy(deleteModalOpen = open);
+            it.copy(editModalOpen = false);
+        }
+    }
+
+    fun openDeleteModal() {
+        _mainViewState.update {
+            it.copy(deleteModalOpen = true);
+        }
+    }
+
+    fun closeDeleteModal(delete:Boolean) {
+        _mainViewState.update {
+            it.copy(deleteModalOpen = false);
         }
     }
 }
