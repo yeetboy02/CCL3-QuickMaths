@@ -59,6 +59,7 @@ fun NavbarView(mainViewModel:mainViewModel) {
             startDestination = Screen.Home.route
         ){
             composable(Screen.Home.route){
+                mainViewModel.getLastScore();
                 mainViewModel.selectScreen(Screen.Home);
                 Home(mainViewModel = mainViewModel);
             }
