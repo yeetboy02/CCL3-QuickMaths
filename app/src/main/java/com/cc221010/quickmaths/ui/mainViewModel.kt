@@ -56,7 +56,8 @@ class mainViewModel(private val dao: scoreDAO): ViewModel() {
         }
     }
 
-    fun openEditModal() {
+    fun openEditModal(id:Int) {
+        getScore(id);
         _mainViewState.update {
             it.copy(editModalOpen = true);
         }
@@ -68,7 +69,7 @@ class mainViewModel(private val dao: scoreDAO): ViewModel() {
         }
     }
 
-    fun openDeleteModal() {
+    fun openDeleteModal(id:Int) {
         _mainViewState.update {
             it.copy(deleteModalOpen = true);
         }
