@@ -46,7 +46,7 @@ import com.cc221010.quickmaths.ui.mainViewModel
 @Composable
 fun deleteModal(mainViewModel:mainViewModel) {
     val state = mainViewModel.mainViewState.collectAsState();
-    if (state.value.deleteModalOpen) {
+    if (state.value.deleteModalOpen && state.value.currEditScore != null) {
         AlertDialog(
             onDismissRequest = { mainViewModel.closeDeleteModal(false) },
             backgroundColor = MaterialTheme.colorScheme.secondary,
@@ -145,7 +145,7 @@ fun deleteModal(mainViewModel:mainViewModel) {
                             shape = RoundedCornerShape(50),
                         ) {
                             Button(
-                                onClick = { mainViewModel.closeDeleteModal(true) },
+                                onClick = { mainViewModel.closeDeleteModal(true, state.value.currEditScore) },
                                 colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary),
                                 shape = RoundedCornerShape(50),
                                 modifier = Modifier

@@ -70,14 +70,23 @@ class mainViewModel(private val dao: scoreDAO): ViewModel() {
     }
 
     fun openDeleteModal(id:Int) {
+        getScore(id);
         _mainViewState.update {
             it.copy(deleteModalOpen = true);
         }
     }
 
-    fun closeDeleteModal(delete:Boolean) {
+    fun closeDeleteModal(delete:Boolean, deleteScore:score? = null) {
         _mainViewState.update {
-            it.copy(deleteModalOpen = false);
+            it.copy(deleteModalOpen = false, currEditScore = null);
         }
+
+        if (delete && deleteScore != null) {
+            viewModelScope.launch {
+                dao.deleteScore(deleteScore);
+            }
+        }
+
+        getScores();
     }
 }
