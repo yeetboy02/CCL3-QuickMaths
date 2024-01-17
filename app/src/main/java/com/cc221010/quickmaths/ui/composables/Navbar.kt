@@ -61,12 +61,13 @@ fun NavbarView(mainViewModel:mainViewModel) {
             startDestination = Screen.Home.route
         ){
             composable(Screen.Home.route){
-                mainViewModel.getScores();
-                mainViewModel.selectScreen(Screen.Home)
+                mainViewModel.selectScreen(Screen.Home);
                 Home(mainViewModel = mainViewModel);
             }
             composable(Screen.Highscores.route){
-                mainViewModel.selectScreen(Screen.Highscores)
+                mainViewModel.getScores();
+                mainViewModel.selectScreen(Screen.Highscores);
+                Highscores(mainViewModel = mainViewModel);
             }
         }
     }
@@ -78,19 +79,25 @@ fun BottomNavigationBar(navController:NavHostController, selectedScreen:Screen) 
         modifier = Modifier.background(MaterialTheme.colorScheme.tertiary)
     ) {
         BottomNavigation (
-            modifier = Modifier.height(80.dp).padding(top = 4.dp),
+            modifier = Modifier
+                .height(80.dp)
+                .padding(top = 4.dp),
             backgroundColor = MaterialTheme.colorScheme.primary
         ) {
             NavigationBarItem(
                 selected = (selectedScreen == Screen.Home),
                 onClick = { navController.navigate(Screen.Home.route) },
-                icon = { Icon(painter = painterResource(id = R.drawable.home), contentDescription = "", modifier = Modifier.width(45.dp).height(45.dp), tint = MaterialTheme.colorScheme.onPrimary) },
+                icon = { Icon(painter = painterResource(id = R.drawable.home), contentDescription = "", modifier = Modifier
+                    .width(45.dp)
+                    .height(45.dp), tint = MaterialTheme.colorScheme.onPrimary) },
                 colors = NavigationBarItemDefaults.colors(indicatorColor = MaterialTheme.colorScheme.background),
             )
             NavigationBarItem(
                 selected = (selectedScreen == Screen.Highscores),
                 onClick = { navController.navigate(Screen.Highscores.route) },
-                icon = { Icon(painter = painterResource(id = R.drawable.highscore), contentDescription = "", modifier = Modifier.width(45.dp).height(45.dp), tint = MaterialTheme.colorScheme.onPrimary) },
+                icon = { Icon(painter = painterResource(id = R.drawable.highscore), contentDescription = "", modifier = Modifier
+                    .width(45.dp)
+                    .height(45.dp), tint = MaterialTheme.colorScheme.onPrimary) },
                 colors = NavigationBarItemDefaults.colors(indicatorColor = MaterialTheme.colorScheme.background),
             )
         }
