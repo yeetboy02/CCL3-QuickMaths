@@ -23,7 +23,7 @@ interface scoreDAO {
     fun getScores():Flow<List<score>>
 
     @Query("SELECT * FROM scores WHERE date = ( SELECT MAX(date) FROM scores )")
-    fun getLastScore():score;
+    fun getLastScore():Flow<score>;
 
     @Query("SELECT * FROM scores WHERE id = :id")
     fun getScore(id:Int):Flow<score>;
