@@ -28,8 +28,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -115,8 +118,15 @@ fun Home(mainViewModel:mainViewModel) {
                         text = state.value.lastScore!!.name,
                         fontSize = 30.sp,
                         fontWeight = FontWeight(700),
-                        color = MaterialTheme.colorScheme.tertiary,
-                        modifier = Modifier.padding(top = 10.dp)
+                        color = MaterialTheme.colorScheme.background,
+                        modifier = Modifier.padding(top = 10.dp),
+                        style = TextStyle(
+                            shadow = Shadow(
+                                color = MaterialTheme.colorScheme.tertiary,
+                                offset = Offset(0f, 3f),
+                                blurRadius = 0f
+                            )
+                        )
                     );
                 }
                 Column(
@@ -127,7 +137,14 @@ fun Home(mainViewModel:mainViewModel) {
                         text = state.value.lastScore!!.points.toString() + " Points",
                         fontSize = 30.sp,
                         fontWeight = FontWeight(700),
-                        color = MaterialTheme.colorScheme.tertiary
+                        color = MaterialTheme.colorScheme.background,
+                        style = TextStyle(
+                            shadow = Shadow(
+                                color = MaterialTheme.colorScheme.tertiary,
+                                offset = Offset(0f, 3f),
+                                blurRadius = 0f
+                            )
+                        )
                     );
                 }
                 Column(
@@ -138,8 +155,15 @@ fun Home(mainViewModel:mainViewModel) {
                         text = state.value.lastScore!!.date!!.format(dateFormat),
                         fontSize = 20.sp,
                         fontWeight = FontWeight(700),
-                        color = MaterialTheme.colorScheme.tertiary,
-                        modifier = Modifier.padding(bottom = 15.dp)
+                        color = MaterialTheme.colorScheme.background,
+                        modifier = Modifier.padding(bottom = 15.dp),
+                        style = TextStyle(
+                            shadow = Shadow(
+                                color = MaterialTheme.colorScheme.tertiary,
+                                offset = Offset(0f, 3f),
+                                blurRadius = 0f
+                            )
+                        )
                     );
                 }
             }
@@ -169,6 +193,13 @@ fun Home(mainViewModel:mainViewModel) {
                     fontSize = 35.sp,
                     fontWeight = FontWeight(600),
                     color = MaterialTheme.colorScheme.onPrimary,
+                    style = TextStyle(
+                        shadow = Shadow(
+                            color = MaterialTheme.colorScheme.tertiary,
+                            offset = Offset(0f, 3f),
+                            blurRadius = 0f
+                        )
+                    )
                 )
             }
         }
