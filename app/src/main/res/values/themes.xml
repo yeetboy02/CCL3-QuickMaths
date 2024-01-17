@@ -2,4 +2,8 @@
 <resources>
 
     <style name="Theme.QuickMaths" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.SplashScreen.CustomSplash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">#1A759F</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/logo</item>
+    </style>
 </resources>
