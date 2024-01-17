@@ -55,4 +55,10 @@ class mainViewModel(private val dao: scoreDAO): ViewModel() {
             dao.insertScore(score);
         }
     }
+
+    fun editModal(open:Boolean) {
+        _mainViewState.update {
+            it.copy(editModalOpen = open);
+        }
+    }
 }
