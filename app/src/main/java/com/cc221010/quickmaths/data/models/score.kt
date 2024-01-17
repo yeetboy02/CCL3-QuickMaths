@@ -8,5 +8,6 @@ import java.util.Date
 data class score (
     val name:String,
     val points:Int,
+    val date:Date?,
     @PrimaryKey(autoGenerate = true) val id:Int = 0,
 )
