@@ -32,8 +32,8 @@ import com.cc221010.quickmaths.ui.mainViewModel
 fun Home(mainViewModel:mainViewModel) {
     val state = mainViewModel.mainViewState.collectAsState();
 
-    if (!state.value.scores.isEmpty()) {
-        Text(text = state.value.scores[0].date!!.format(dateFormat));
+    if (state.value.lastScore != null) {
+        Text(text = state.value.lastScore!!.date!!.format(dateFormat));
     }
     Row(
         modifier = Modifier.fillMaxWidth(),
