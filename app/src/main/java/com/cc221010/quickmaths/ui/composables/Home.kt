@@ -88,8 +88,9 @@ fun Home(mainViewModel:mainViewModel) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .fillMaxHeight(),
-            verticalArrangement = Arrangement.Center,
+                .fillMaxHeight()
+                .padding(top = 175.dp),
+
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
@@ -147,7 +148,7 @@ fun Home(mainViewModel:mainViewModel) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(top = 500.dp),
+            .padding(top = 450.dp),
         horizontalArrangement = Arrangement.Center
     ) {
         Card(
