@@ -9,4 +9,5 @@ data class mainViewState(
     val scores:List<score> = emptyList(),
     val selectedScreen:Screen = Screen.Home,
     val editModalOpen:Boolean = false,
+    val deleteModalOpen:Boolean = false,
 )
