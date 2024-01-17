@@ -19,6 +19,16 @@ class mainViewModel(private val dao: scoreDAO): ViewModel() {
         _mainViewState.update { it.copy(selectedScreen = screen) }
     }
 
+    fun getScores() {
+        viewModelScope.launch {
+            dao.getScores().collect(){
+                    scores -> _mainViewState.update {
+                it.copy(scores = scores)
+            }
+            };
+        }
+    }
+
     fun addScore(score: score) {
         viewModelScope.launch {
             dao.insertScore(score);
