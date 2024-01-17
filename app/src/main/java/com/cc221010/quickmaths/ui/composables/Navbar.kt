@@ -36,6 +36,7 @@ import com.cc221010.quickmaths.R
 import com.cc221010.quickmaths.data.models.score
 import com.cc221010.quickmaths.ui.mainViewModel
 import java.time.LocalDate
+import java.time.LocalDateTime
 
 sealed class Screen(val route: String){
     object Home: Screen("home");
@@ -48,9 +49,6 @@ sealed class Screen(val route: String){
 fun NavbarView(mainViewModel:mainViewModel) {
     val state = mainViewModel.mainViewState.collectAsState();
     val navController = rememberNavController();
-
-    val score:score = score("Herbert", 1000, LocalDate.now());
-    mainViewModel.addScore(score);
 
     Scaffold(
         bottomBar = {BottomNavigationBar(navController, state.value.selectedScreen)}
