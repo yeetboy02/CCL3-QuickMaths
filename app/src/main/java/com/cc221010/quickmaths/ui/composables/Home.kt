@@ -1,5 +1,8 @@
 package com.cc221010.quickmaths.ui.composables
 
+import android.os.Build
+import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -21,12 +24,17 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.cc221010.quickmaths.data.dateFormat
 import com.cc221010.quickmaths.ui.mainViewModel
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun Home(mainViewModel:mainViewModel) {
     val state = mainViewModel.mainViewState.collectAsState();
 
+    if (!state.value.scores.isEmpty()) {
+        Text(text = state.value.scores[0].date!!.format(dateFormat));
+    }
     Row(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.Center
@@ -39,7 +47,10 @@ fun Home(mainViewModel:mainViewModel) {
                 onClick = { /*TODO*/ },
                 colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary),
                 shape = RoundedCornerShape(35),
-                modifier = Modifier.width(243.dp).height(115.dp).padding(bottom = 10.dp),
+                modifier = Modifier
+                    .width(243.dp)
+                    .height(115.dp)
+                    .padding(bottom = 10.dp),
             ) {
                 Text(
                     text = "New Game",

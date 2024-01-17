@@ -1,5 +1,6 @@
 package com.cc221010.quickmaths.ui
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cc221010.quickmaths.data.models.score
@@ -21,10 +22,10 @@ class mainViewModel(private val dao: scoreDAO): ViewModel() {
 
     fun getScores() {
         viewModelScope.launch {
-            dao.getScores().collect(){
-                    scores -> _mainViewState.update {
-                it.copy(scores = scores)
-            }
+            dao.getScores().collect() { scores ->
+                _mainViewState.update {
+                    it.copy(scores = scores)
+                }
             };
         }
     }

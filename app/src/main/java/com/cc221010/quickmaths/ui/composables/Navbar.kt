@@ -1,5 +1,7 @@
 package com.cc221010.quickmaths.ui.composables
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -31,18 +33,25 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.cc221010.quickmaths.R
+import com.cc221010.quickmaths.data.models.score
 import com.cc221010.quickmaths.ui.mainViewModel
+import java.time.LocalDate
 
 sealed class Screen(val route: String){
     object Home: Screen("home");
     object Highscores: Screen("highscores");
 }
 
+@RequiresApi(Build.VERSION_CODES.O)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NavbarView(mainViewModel:mainViewModel) {
     val state = mainViewModel.mainViewState.collectAsState();
     val navController = rememberNavController();
+
+    val score:score = score("Herbert", 1000, LocalDate.now());
+    mainViewModel.addScore(score);
+
     Scaffold(
         bottomBar = {BottomNavigationBar(navController, state.value.selectedScreen)}
     ) {
@@ -52,6 +61,7 @@ fun NavbarView(mainViewModel:mainViewModel) {
             startDestination = Screen.Home.route
         ){
             composable(Screen.Home.route){
+                mainViewModel.getScores();
                 mainViewModel.selectScreen(Screen.Home)
                 Home(mainViewModel = mainViewModel);
             }
