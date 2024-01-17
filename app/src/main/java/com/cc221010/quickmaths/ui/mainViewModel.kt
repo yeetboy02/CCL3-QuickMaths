@@ -30,6 +30,16 @@ class mainViewModel(private val dao: scoreDAO): ViewModel() {
         }
     }
 
+    fun getScore(id:Int) {
+        viewModelScope.launch {
+            dao.getScore(id).collect() { score ->
+                _mainViewState.update {
+                    it.copy(currEditScore = score);
+                }
+            }
+        }
+    }
+
     fun getLastScore() {
         viewModelScope.launch {
             dao.getLastScore().collect() {
