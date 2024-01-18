@@ -25,6 +25,13 @@ class gameViewModel:ViewModel() {
         }
     }
 
+    fun addPoints(points:Int) {
+        val newPoints:Int = gameViewState.value.totalPoints + points;
+        _gameViewState.update {
+            it.copy(totalPoints = newPoints);
+        }
+    }
+
     fun resetGame() {
         _gameViewState.update {
             it.copy(totalPoints = 0, currQuestion = null, questionsAnswered = 0)
