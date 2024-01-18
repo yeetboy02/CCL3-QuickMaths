@@ -6,5 +6,6 @@ interface Question {
     val operators:List<Int>;
     val result:Int;
     val asString:String;
-    val points:Int;
+    val maxPoints:Int;
+    val minPoints:Int;
 }

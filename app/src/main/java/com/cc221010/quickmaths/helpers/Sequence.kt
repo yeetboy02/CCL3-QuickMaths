@@ -8,7 +8,8 @@ class NumberSequence(
     override var length:Int = 0,
     override var result:Int = 0,
     override var asString:String = "",
-    override val points:Int = 1000
+    override val maxPoints:Int = 1000,
+    override val minPoints:Int = 200
 ):Question {
     init {
         var output:Int = 0;
