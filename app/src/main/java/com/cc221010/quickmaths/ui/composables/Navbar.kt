@@ -1,6 +1,7 @@
 package com.cc221010.quickmaths.ui.composables
 
 import android.os.Build
+import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
@@ -21,6 +22,7 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
@@ -73,7 +75,9 @@ fun NavbarView(mainViewModel:mainViewModel, gameViewModel:gameViewModel) {
                 Highscores(mainViewModel = mainViewModel);
             }
             composable(Screen.Game.route) {
-                gameViewModel.getQuestion();
+                if (gameViewModel.gameViewState.collectAsState().value.currQuestion == null) {
+                    gameViewModel.getQuestion();
+                }
                 mainViewModel.selectScreen(Screen.Game);
                 Game(mainViewModel = mainViewModel, gameViewModel = gameViewModel, navController = navController);
             }

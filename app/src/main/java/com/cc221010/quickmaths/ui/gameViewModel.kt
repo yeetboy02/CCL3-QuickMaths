@@ -1,8 +1,10 @@
 package com.cc221010.quickmaths.ui
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.cc221010.quickmaths.helpers.Calculation
 import com.cc221010.quickmaths.helpers.NumberSequence
+import com.cc221010.quickmaths.helpers.Question
 import com.cc221010.quickmaths.helpers.getRandInt
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -14,12 +16,10 @@ class gameViewModel:ViewModel() {
     val gameViewState: StateFlow<gameViewState> = _gameViewState.asStateFlow();
 
     fun getQuestion() {
-        val randInt = getRandInt(0, 1);
-        val newQuestion:Any? = when (randInt) {
+        val newQuestion:Question? = when (getRandInt(0, 1)) {
             1 -> Calculation();
             else -> NumberSequence();
         }
-
         _gameViewState.update {
             it.copy(currQuestion = newQuestion);
         }
