@@ -1,9 +1,11 @@
 package com.cc221010.quickmaths
 
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -17,6 +19,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.room.Room
 import com.cc221010.quickmaths.data.scoreDatabase
 import com.cc221010.quickmaths.ui.composables.NavbarView
+import com.cc221010.quickmaths.ui.gameViewModel
 import com.cc221010.quickmaths.ui.mainViewModel
 import com.cc221010.quickmaths.ui.theme.QuickMathsTheme
 
@@ -24,6 +27,8 @@ class MainActivity : ComponentActivity() {
     private val db by lazy {
         Room.databaseBuilder(this, scoreDatabase::class.java, "ScoreDatabase.db").fallbackToDestructiveMigration().build();
     }
+
+    private val gameViewModel = gameViewModel() ;
 
     private val mainViewModel by viewModels<mainViewModel>(
         factoryProducer = {
@@ -34,6 +39,7 @@ class MainActivity : ComponentActivity() {
             }
         }
     )
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -46,7 +52,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    NavbarView(mainViewModel);
+                    NavbarView(mainViewModel, gameViewModel);
                 }
             }
         }

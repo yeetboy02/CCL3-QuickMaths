@@ -34,6 +34,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.cc221010.quickmaths.R
 import com.cc221010.quickmaths.data.models.score
+import com.cc221010.quickmaths.ui.gameViewModel
 import com.cc221010.quickmaths.ui.mainViewModel
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -47,7 +48,7 @@ sealed class Screen(val route: String){
 @RequiresApi(Build.VERSION_CODES.O)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NavbarView(mainViewModel:mainViewModel) {
+fun NavbarView(mainViewModel:mainViewModel, gameViewModel:gameViewModel) {
     val state = mainViewModel.mainViewState.collectAsState();
     val navController = rememberNavController();
 
