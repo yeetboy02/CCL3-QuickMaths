@@ -137,7 +137,7 @@ fun Game(gameViewModel:gameViewModel, navController:NavController) {
                         keyboardActions = KeyboardActions(
                             onDone = {
                                 isRunning = false;
-                                answerCorrect = (answer.text.toInt() == gameState.value.currQuestion!!.result);
+                                answerCorrect = ((answer.text.toIntOrNull()) == gameState.value.currQuestion!!.result);
                             }
                         ),
                         onValueChange = { newText ->
