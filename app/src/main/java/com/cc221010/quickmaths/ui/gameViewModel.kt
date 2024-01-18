@@ -32,6 +32,12 @@ class gameViewModel:ViewModel() {
         }
     }
 
+    fun resetQuestion() {
+        _gameViewState.update {
+            it.copy(currQuestion = null);
+        }
+    }
+
     fun resetGame() {
         _gameViewState.update {
             it.copy(totalPoints = 0, currQuestion = null, questionsAnswered = 0)
