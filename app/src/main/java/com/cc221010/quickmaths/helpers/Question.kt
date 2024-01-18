@@ -6,4 +6,5 @@ interface Question {
     val operators:List<Int>;
     val result:Int;
     val asString:String;
+    val points:Int;
 }
