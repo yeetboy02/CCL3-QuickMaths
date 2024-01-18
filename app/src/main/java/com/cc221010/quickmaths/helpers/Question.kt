@@ -1,9 +1,9 @@
 package com.cc221010.quickmaths.helpers
 
-abstract class Question {
-    abstract val length:Int;
-    abstract val numbers:List<Int>;
-    abstract val operators:List<Int>;
-    abstract val result:Int;
-    abstract val asString:String;
+interface Question {
+    val length:Int;
+    val numbers:List<Int>;
+    val operators:List<Int>;
+    val result:Int;
+    val asString:String;
 }
