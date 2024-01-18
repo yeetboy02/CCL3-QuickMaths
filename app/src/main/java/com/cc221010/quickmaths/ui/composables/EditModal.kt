@@ -168,8 +168,13 @@ fun editModal(mainViewModel:mainViewModel) {
                         ) {
                             Button(
                                 onClick = {
-
+                                    if (name.isEmpty()) {
+                                        nameEmptyError = true;
+                                    }
+                                    else {
+                                        nameEmptyError = false;
                                         mainViewModel.closeEditModal(true, score(id = state.value.currEditScore!!.id, name = name, points = state.value.currEditScore!!.points, date = state.value.currEditScore!!.date));
+                                    }
                                 },
                                 colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary),
                                 shape = RoundedCornerShape(50),
