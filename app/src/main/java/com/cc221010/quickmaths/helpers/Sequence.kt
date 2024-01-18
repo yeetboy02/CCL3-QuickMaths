@@ -1,7 +1,7 @@
 package com.cc221010.quickmaths.helpers
 
 @OptIn(ExperimentalStdlibApi::class)
-class Sequence(
+class NumberSequence(
     override var numbers:List<Int> = emptyList(),
     override val operators:List<Int> = (0..getRandInt(0, 2)).map { getRandInt(0, 2) },
     var operatorNumbers:List<Int> = emptyList(),
