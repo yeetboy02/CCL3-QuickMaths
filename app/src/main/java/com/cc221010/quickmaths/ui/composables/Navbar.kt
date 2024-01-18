@@ -80,7 +80,7 @@ fun NavbarView(mainViewModel:mainViewModel, gameViewModel:gameViewModel) {
                     gameViewModel.getQuestion();
                 }
                 mainViewModel.selectScreen(Screen.Game);
-                Game(mainViewModel = mainViewModel, gameViewModel = gameViewModel, navController = navController);
+                Game(gameViewModel = gameViewModel, navController = navController);
             }
             composable(Screen.AddScore.route) {
                 mainViewModel.selectScreen(Screen.AddScore);

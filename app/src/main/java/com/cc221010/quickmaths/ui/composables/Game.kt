@@ -37,7 +37,7 @@ import java.util.concurrent.TimeUnit
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Game(mainViewModel:mainViewModel, gameViewModel:gameViewModel, navController:NavController) {
+fun Game(gameViewModel:gameViewModel, navController:NavController) {
     val gameState = gameViewModel.gameViewState.collectAsState();
 
     var answer by rememberSaveable(stateSaver = TextFieldValue.Saver) { mutableStateOf(TextFieldValue(""))}
