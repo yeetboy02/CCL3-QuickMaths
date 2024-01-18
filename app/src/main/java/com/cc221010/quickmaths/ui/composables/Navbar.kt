@@ -62,15 +62,18 @@ fun NavbarView(mainViewModel:mainViewModel, gameViewModel:gameViewModel) {
         ){
             composable(Screen.Home.route){
                 mainViewModel.getLastScore();
+                gameViewModel.resetGame();
                 mainViewModel.selectScreen(Screen.Home);
                 Home(mainViewModel = mainViewModel, navController = navController);
             }
             composable(Screen.Highscores.route){
                 mainViewModel.getScores();
+                gameViewModel.resetGame();
                 mainViewModel.selectScreen(Screen.Highscores);
                 Highscores(mainViewModel = mainViewModel);
             }
             composable(Screen.Game.route) {
+                gameViewModel.getQuestion();
                 mainViewModel.selectScreen(Screen.Game);
                 Game(mainViewModel = mainViewModel, gameViewModel = gameViewModel, navController = navController);
             }
