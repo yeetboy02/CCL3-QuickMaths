@@ -37,13 +37,14 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.cc221010.quickmaths.R
 import com.cc221010.quickmaths.data.dateFormat
 import com.cc221010.quickmaths.ui.mainViewModel
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun Home(mainViewModel:mainViewModel) {
+fun Home(mainViewModel:mainViewModel, navController:NavController) {
     val state = mainViewModel.mainViewState.collectAsState();
 
     Row(modifier = Modifier
@@ -180,7 +181,7 @@ fun Home(mainViewModel:mainViewModel) {
             shape = RoundedCornerShape(35),
         ) {
             Button(
-                onClick = { /*TODO*/ },
+                onClick = { navController.navigate(Screen.Game.route) },
                 colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary),
                 shape = RoundedCornerShape(35),
                 modifier = Modifier
