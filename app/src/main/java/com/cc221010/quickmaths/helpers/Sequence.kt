@@ -8,7 +8,7 @@ class NumberSequence(
     override var length:Int = 0,
     override var result:Int = 0,
     override var asString:String = "",
-):Question() {
+):Question {
     init {
         var output:Int = 0;
         if (operators.size * 2 > 4) {

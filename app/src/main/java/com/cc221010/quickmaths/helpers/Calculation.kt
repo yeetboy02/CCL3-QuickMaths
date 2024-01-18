@@ -7,7 +7,7 @@ class Calculation(
     override val operators:List<Int> = (0..<length).map { getRandInt(0, 2) },
     override var result:Int = 0,
     override var asString:String = ""
-):Question() {
+):Question {
 
     init {
         var output:List<Int> = listOf(getRandInt(0, 100));
