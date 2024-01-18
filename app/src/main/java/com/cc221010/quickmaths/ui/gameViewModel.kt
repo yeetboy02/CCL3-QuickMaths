@@ -28,6 +28,7 @@ class gameViewModel:ViewModel() {
     fun questionAnswered(points:Int) {
         val newPoints:Int = gameViewState.value.totalPoints + points;
         val totalQuestions:Int = gameViewState.value.questionsAnswered + 1;
+        resetQuestion();
         _gameViewState.update {
             it.copy(totalPoints = newPoints, questionsAnswered =  totalQuestions);
         }
