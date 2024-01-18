@@ -72,7 +72,7 @@ fun NavbarView(mainViewModel:mainViewModel, gameViewModel:gameViewModel) {
             }
             composable(Screen.Game.route) {
                 mainViewModel.selectScreen(Screen.Game);
-                Game(mainViewModel = mainViewModel);
+                Game(mainViewModel = mainViewModel, gameViewModel = gameViewModel, navController = navController);
             }
         }
     }
