@@ -42,6 +42,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cc221010.quickmaths.R
 import com.cc221010.quickmaths.data.dateFormat
+import com.cc221010.quickmaths.data.models.score
 import com.cc221010.quickmaths.ui.mainViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -167,14 +168,8 @@ fun editModal(mainViewModel:mainViewModel) {
                         ) {
                             Button(
                                 onClick = {
-                                    if (name == "") {
-                                        nameEmptyError = true;
-                                    }
-                                    else {
-                                        mainViewModel.closeEditModal(
-                                            true
-                                        )
-                                    }
+
+                                        mainViewModel.closeEditModal(true, score(id = state.value.currEditScore!!.id, name = name, points = state.value.currEditScore!!.points, date = state.value.currEditScore!!.date));
                                 },
                                 colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary),
                                 shape = RoundedCornerShape(50),

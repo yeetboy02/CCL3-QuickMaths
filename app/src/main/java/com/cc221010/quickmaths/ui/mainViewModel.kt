@@ -63,10 +63,18 @@ class mainViewModel(private val dao: scoreDAO): ViewModel() {
         }
     }
 
-    fun closeEditModal(edit:Boolean) {
+    fun closeEditModal(edit:Boolean, editScore:score? = null) {
         _mainViewState.update {
-            it.copy(editModalOpen = false);
+            it.copy(editModalOpen = false, currEditScore = null);
         }
+
+        if (edit && editScore != null) {
+            viewModelScope.launch {
+                dao.updateScore(editScore);
+            }
+        }
+
+        getScores();
     }
 
     fun openDeleteModal(id:Int) {
