@@ -163,7 +163,7 @@ fun Game(mainViewModel:mainViewModel, gameViewModel:gameViewModel, navController
                                     navController.navigate(Screen.Game.route);
                                 }
                                 else {
-
+                                    navController.navigate(Screen.AddScore.route);
                                 }
                             }
                         ) {
