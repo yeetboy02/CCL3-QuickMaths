@@ -45,6 +45,7 @@ sealed class Screen(val route: String){
     object Home:Screen("home");
     object Highscores:Screen("highscores");
     object Game:Screen("game");
+    object AddScore:Screen("addScore");
 }
 
 @RequiresApi(Build.VERSION_CODES.O)
@@ -80,6 +81,10 @@ fun NavbarView(mainViewModel:mainViewModel, gameViewModel:gameViewModel) {
                 }
                 mainViewModel.selectScreen(Screen.Game);
                 Game(mainViewModel = mainViewModel, gameViewModel = gameViewModel, navController = navController);
+            }
+            composable(Screen.AddScore.route) {
+                mainViewModel.selectScreen(Screen.AddScore);
+                AddScore(mainViewModel = mainViewModel, gameViewModel = gameViewModel, navController = navController);
             }
         }
     }
