@@ -39,8 +39,9 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 
 sealed class Screen(val route: String){
-    object Home: Screen("home");
-    object Highscores: Screen("highscores");
+    object Home:Screen("home");
+    object Highscores:Screen("highscores");
+    object Game:Screen("game");
 }
 
 @RequiresApi(Build.VERSION_CODES.O)
@@ -68,37 +69,42 @@ fun NavbarView(mainViewModel:mainViewModel) {
                 mainViewModel.selectScreen(Screen.Highscores);
                 Highscores(mainViewModel = mainViewModel);
             }
+            composable(Screen.Game.route) {
+                Game(mainViewModel = mainViewModel);
+            }
         }
     }
 }
 
 @Composable
 fun BottomNavigationBar(navController:NavHostController, selectedScreen:Screen) {
-    Box(
-        modifier = Modifier.background(MaterialTheme.colorScheme.tertiary)
-    ) {
-        BottomNavigation (
-            modifier = Modifier
-                .height(80.dp)
-                .padding(top = 4.dp),
-            backgroundColor = MaterialTheme.colorScheme.primary
+    if (selectedScreen == Screen.Home || selectedScreen == Screen.Highscores) {
+        Box(
+            modifier = Modifier.background(MaterialTheme.colorScheme.tertiary)
         ) {
-            NavigationBarItem(
-                selected = (selectedScreen == Screen.Home),
-                onClick = { navController.navigate(Screen.Home.route) },
-                icon = { Icon(painter = painterResource(id = R.drawable.home), contentDescription = "", modifier = Modifier
-                    .width(45.dp)
-                    .height(45.dp), tint = MaterialTheme.colorScheme.onPrimary) },
-                colors = NavigationBarItemDefaults.colors(indicatorColor = MaterialTheme.colorScheme.tertiary),
-            )
-            NavigationBarItem(
-                selected = (selectedScreen == Screen.Highscores),
-                onClick = { navController.navigate(Screen.Highscores.route) },
-                icon = { Icon(painter = painterResource(id = R.drawable.highscore), contentDescription = "", modifier = Modifier
-                    .width(45.dp)
-                    .height(45.dp), tint = MaterialTheme.colorScheme.onPrimary) },
-                colors = NavigationBarItemDefaults.colors(indicatorColor = MaterialTheme.colorScheme.tertiary),
-            )
+            BottomNavigation (
+                modifier = Modifier
+                    .height(80.dp)
+                    .padding(top = 4.dp),
+                backgroundColor = MaterialTheme.colorScheme.primary
+            ) {
+                NavigationBarItem(
+                    selected = (selectedScreen == Screen.Home),
+                    onClick = { navController.navigate(Screen.Home.route) },
+                    icon = { Icon(painter = painterResource(id = R.drawable.home), contentDescription = "", modifier = Modifier
+                        .width(45.dp)
+                        .height(45.dp), tint = MaterialTheme.colorScheme.onPrimary) },
+                    colors = NavigationBarItemDefaults.colors(indicatorColor = MaterialTheme.colorScheme.tertiary),
+                )
+                NavigationBarItem(
+                    selected = (selectedScreen == Screen.Highscores),
+                    onClick = { navController.navigate(Screen.Highscores.route) },
+                    icon = { Icon(painter = painterResource(id = R.drawable.highscore), contentDescription = "", modifier = Modifier
+                        .width(45.dp)
+                        .height(45.dp), tint = MaterialTheme.colorScheme.onPrimary) },
+                    colors = NavigationBarItemDefaults.colors(indicatorColor = MaterialTheme.colorScheme.tertiary),
+                )
+            }
         }
     }
 }
