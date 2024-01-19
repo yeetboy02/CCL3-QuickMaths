@@ -127,7 +127,7 @@ fun editModal(mainViewModel:mainViewModel) {
                                         ),
                                         fontSize = 30.sp
                                     ),
-                                    maxLines = 1,
+                                    singleLine = true,
                                     shape = RoundedCornerShape(20),
                                     onValueChange = { newText ->
                                         if (newText.length <= 30) {
