@@ -392,7 +392,6 @@ fun Game(gameViewModel:gameViewModel, navController:NavController) {
                                         navController.navigate(Screen.AddScore.route);
                                     }
                                 },
-
                                 colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colorScheme.primary),
                                 shape = RoundedCornerShape(35),
                                 modifier = Modifier
