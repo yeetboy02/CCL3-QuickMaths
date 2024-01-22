@@ -25,7 +25,7 @@ import com.cc221010.quickmaths.ui.theme.QuickMathsTheme
 
 class MainActivity : ComponentActivity() {
     private val db by lazy {
-        Room.databaseBuilder(this, scoreDatabase::class.java, "ScoreDatabase.db").fallbackToDestructiveMigration().build();
+        Room.databaseBuilder(this, scoreDatabase::class.java, "ScoreDatabase.db").build();
     }
 
     private val gameViewModel = gameViewModel() ;
