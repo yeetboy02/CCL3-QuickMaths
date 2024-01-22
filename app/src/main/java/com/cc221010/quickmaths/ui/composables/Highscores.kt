@@ -51,9 +51,10 @@ fun Highscores(mainViewModel:mainViewModel) {
         items(state.value.scores) {
             val rowModifier:Modifier = Modifier
                 .fillMaxWidth()
+                .padding(start = 10.dp, end = 10.dp)
                 .clickable { mainViewModel.openEditModal(it.id) }
             val latestModifier = if (it.id == state.value.lastScore!!.id) {
-                    rowModifier.border(4.dp, MaterialTheme.colorScheme.primary, RoundedCornerShape(20));
+                    rowModifier.border(4.dp, MaterialTheme.colorScheme.primary, RoundedCornerShape(10));
                 }
                 else {
                     rowModifier;
@@ -64,7 +65,7 @@ fun Highscores(mainViewModel:mainViewModel) {
             ) {
                 Card(
                     colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondary),
-                    modifier = Modifier.fillMaxSize().padding(start = 20.dp, end = 20.dp, top = 10.dp, bottom = 10.dp)
+                    modifier = Modifier.fillMaxSize().padding(start = 10.dp, end = 10.dp, top = 10.dp, bottom = 10.dp)
                 ) {
                     Row(
                         modifier = Modifier
