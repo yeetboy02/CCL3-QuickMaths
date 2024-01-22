@@ -129,7 +129,7 @@ fun editModal(mainViewModel:mainViewModel) {
                                             offset = Offset(0f, 5f),
                                             blurRadius = 0f
                                         ),
-                                        fontSize = 30.sp
+                                        fontSize = 25.sp
                                     ),
                                     singleLine = true,
                                     shape = RoundedCornerShape(20),

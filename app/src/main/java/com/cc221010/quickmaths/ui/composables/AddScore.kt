@@ -146,7 +146,7 @@ fun AddScore(mainViewModel:mainViewModel, gameViewModel:gameViewModel, navContro
                                         offset = Offset(0f, 5f),
                                         blurRadius = 0f
                                     ),
-                                    fontSize = 30.sp
+                                    fontSize = 25.sp
                                 ),
                                 keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
                                 keyboardActions = KeyboardActions(
