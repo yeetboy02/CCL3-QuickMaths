@@ -2,6 +2,7 @@ package com.cc221010.quickmaths.ui.composables
 
 import android.os.Build
 import androidx.annotation.RequiresApi
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -48,26 +49,32 @@ fun Highscores(mainViewModel:mainViewModel) {
 
     LazyColumn() {
         items(state.value.scores) {
+            val rowModifier:Modifier = Modifier
+                .fillMaxWidth()
+                .clickable { mainViewModel.openEditModal(it.id) }
+            val latestModifier = if (it.id == state.value.lastScore!!.id) {
+                    rowModifier.border(4.dp, MaterialTheme.colorScheme.primary, RoundedCornerShape(20));
+                }
+                else {
+                    rowModifier;
+                }
             Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(131.dp)
-                    .clickable { mainViewModel.openEditModal(it.id) }
-                    .padding(start = 20.dp, end = 20.dp, bottom = 20.dp),
-                horizontalArrangement = Arrangement.Center
+                modifier = latestModifier,
+                horizontalArrangement = Arrangement.Center,
             ) {
                 Card(
                     colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondary),
-                    modifier = Modifier.fillMaxSize()
+                    modifier = Modifier.fillMaxSize().padding(start = 20.dp, end = 20.dp, top = 10.dp, bottom = 10.dp)
                 ) {
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .fillMaxHeight(),
+                            .fillMaxHeight()
+                            .padding(top = 5.dp, bottom = 10.dp),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Column(
-                            modifier = Modifier.fillMaxWidth(0.15f),
+                            modifier = Modifier.fillMaxWidth(0.2f),
                             horizontalAlignment = Alignment.CenterHorizontally,
                         ) {
                             Text(
