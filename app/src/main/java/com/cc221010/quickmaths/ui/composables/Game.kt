@@ -239,7 +239,11 @@ fun Game(gameViewModel:gameViewModel, navController:NavController) {
                                 .fillMaxWidth()
                                 .height(73.dp)
                                 .padding(bottom = 5.dp),
-                            colors = TextFieldDefaults.textFieldColors(containerColor = MaterialTheme.colorScheme.primary),
+                            colors = TextFieldDefaults.textFieldColors(
+                                containerColor = MaterialTheme.colorScheme.primary,
+                                focusedIndicatorColor = Color.Transparent,
+                                unfocusedIndicatorColor = Color.Transparent
+                            ),
                             textStyle = TextStyle(
                                 color = MaterialTheme.colorScheme.background,
                                 shadow = Shadow(

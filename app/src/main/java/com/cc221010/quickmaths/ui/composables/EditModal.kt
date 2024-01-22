@@ -116,7 +116,11 @@ fun editModal(mainViewModel:mainViewModel) {
                                         .fillMaxWidth()
                                         .height(73.dp)
                                         .padding(bottom = 5.dp),
-                                    colors = TextFieldDefaults.textFieldColors(containerColor = MaterialTheme.colorScheme.primary),
+                                    colors = TextFieldDefaults.textFieldColors(
+                                        containerColor = MaterialTheme.colorScheme.primary,
+                                        focusedIndicatorColor = Color.Transparent,
+                                        unfocusedIndicatorColor = Color.Transparent
+                                    ),
                                     value = name,
                                     textStyle = TextStyle(
                                         color = MaterialTheme.colorScheme.background,

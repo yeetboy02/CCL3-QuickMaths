@@ -32,6 +32,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.TextStyle
@@ -66,6 +67,7 @@ fun AddScore(mainViewModel:mainViewModel, gameViewModel:gameViewModel, navContro
     ) {
         Row(
             modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center
         ) {
             Text(
                 modifier = Modifier.padding(start = 15.dp),
@@ -117,7 +119,11 @@ fun AddScore(mainViewModel:mainViewModel, gameViewModel:gameViewModel, navContro
                                     .fillMaxWidth()
                                     .height(73.dp)
                                     .padding(bottom = 5.dp),
-                                colors = TextFieldDefaults.textFieldColors(containerColor = MaterialTheme.colorScheme.primary),
+                                colors = TextFieldDefaults.textFieldColors(
+                                    containerColor = MaterialTheme.colorScheme.primary,
+                                    focusedIndicatorColor = Color.Transparent,
+                                    unfocusedIndicatorColor = Color.Transparent
+                                ),
                                 value = name,
                                 placeholder = {
                                     Text(
