@@ -106,6 +106,15 @@ fun Highscores(mainViewModel:mainViewModel) {
                                         )
                                     )
                                 );
+                                Icon(
+                                    modifier = Modifier
+                                        .width(37.dp)
+                                        .height(27.dp)
+                                        .padding(start = 10.dp, top = 3.dp),
+                                    painter = painterResource(id = R.drawable.edit),
+                                    contentDescription = "",
+                                    tint = MaterialTheme.colorScheme.tertiary
+                                )
                             }
                             Row(
                                 modifier = Modifier.fillMaxWidth(),
