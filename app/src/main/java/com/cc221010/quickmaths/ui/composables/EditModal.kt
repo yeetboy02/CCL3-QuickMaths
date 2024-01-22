@@ -119,7 +119,8 @@ fun editModal(mainViewModel:mainViewModel) {
                                     colors = TextFieldDefaults.textFieldColors(
                                         containerColor = MaterialTheme.colorScheme.primary,
                                         focusedIndicatorColor = Color.Transparent,
-                                        unfocusedIndicatorColor = Color.Transparent
+                                        unfocusedIndicatorColor = Color.Transparent,
+                                        cursorColor = MaterialTheme.colorScheme.tertiary
                                     ),
                                     value = name,
                                     textStyle = TextStyle(

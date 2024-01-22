@@ -242,7 +242,8 @@ fun Game(gameViewModel:gameViewModel, navController:NavController) {
                             colors = TextFieldDefaults.textFieldColors(
                                 containerColor = MaterialTheme.colorScheme.primary,
                                 focusedIndicatorColor = Color.Transparent,
-                                unfocusedIndicatorColor = Color.Transparent
+                                unfocusedIndicatorColor = Color.Transparent,
+                                cursorColor = MaterialTheme.colorScheme.tertiary
                             ),
                             textStyle = TextStyle(
                                 color = MaterialTheme.colorScheme.background,

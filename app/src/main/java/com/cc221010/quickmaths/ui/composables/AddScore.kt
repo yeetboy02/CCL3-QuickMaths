@@ -122,7 +122,8 @@ fun AddScore(mainViewModel:mainViewModel, gameViewModel:gameViewModel, navContro
                                 colors = TextFieldDefaults.textFieldColors(
                                     containerColor = MaterialTheme.colorScheme.primary,
                                     focusedIndicatorColor = Color.Transparent,
-                                    unfocusedIndicatorColor = Color.Transparent
+                                    unfocusedIndicatorColor = Color.Transparent,
+                                    cursorColor = MaterialTheme.colorScheme.tertiary
                                 ),
                                 value = name,
                                 placeholder = {
