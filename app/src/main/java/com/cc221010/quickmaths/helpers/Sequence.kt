@@ -8,9 +8,13 @@ class NumberSequence(
     override var length:Int = 0,
     override var result:Int = 0,
     override var asString:String = "",
-    override val maxPoints:Int = 1000,
-    override val minPoints:Int = 200
+    override var maxPoints:Int = 1000,
+    override val minPoints:Int = 0
 ):Question {
+    init {
+        var output:Int = operators.size * 200;
+        maxPoints += output;
+    }
     init {
         var output:Int = 0;
         if (operators.size * 2 > 4) {

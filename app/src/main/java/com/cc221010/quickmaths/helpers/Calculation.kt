@@ -7,8 +7,8 @@ class Calculation(
     override val operators:List<Int> = (0..<length).map { getRandInt(0, 2) },
     override var result:Int = 0,
     override var asString:String = "",
-    override val maxPoints:Int = 1000,
-    override val minPoints:Int = 200
+    override var maxPoints:Int = 1000,
+    override val minPoints:Int = 0
 ):Question {
 
     init {
@@ -22,6 +22,17 @@ class Calculation(
             }
         }
         numbers = output;
+    }
+
+    init {
+        var output:Int = 0;
+        for (i in 0..<operators.size) {
+            if (operators[i] == 2 && numbers[i] > 1 && numbers[i + 1] > 1) {
+                output += 200;
+            }
+        }
+        output += 100 * (length - 2);
+        maxPoints += output;
     }
 
     init {
