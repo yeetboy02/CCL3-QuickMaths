@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">QuickMaths</string>
+    <string name="save_score">Punkte speichern</string>
+    <string name="points">Punkte</string>
+    <string name="name">Name</string>
+    <string name="name_empty">Der Name kann nicht leer sein!</string>
+    <string name="add_score">Hinzufügen</string>
+    <string name="cancel">Zurück</string>
+    <string name="delete">Löschen</string>
+    <string name="edit_name">Name bearbeiten</string>
+    <string name="enter_new_name">Neuer Name</string>
+    <string name="save_changes">Speichern</string>
+    <string name="total_points">Gesamt</string>
+    <string name="time">Zeit</string>
+    <string name="question">Frage</string>
+    <string name="answer">Antwort</string>
+    <string name="your_answer">Deine Antwort</string>
+    <string name="correct_answer">Richtige Antwort</string>
+    <string name="continueText">Weiter</string>
+    <string name="last_score">Letzter Punktestand</string>
+    <string name="new_game">Neues Spiel</string>
+    <string name="highscores">Highscores</string>
+    <string name="home">Home</string>
+    <string name="edit">Bearbeiten</string>
+    <string name="correct">Korrekt</string>
+    <string name="incorrect">Inkorrekt</string>
+</resources>

@@ -22,6 +22,7 @@ import com.cc221010.quickmaths.ui.composables.NavbarView
 import com.cc221010.quickmaths.ui.gameViewModel
 import com.cc221010.quickmaths.ui.mainViewModel
 import com.cc221010.quickmaths.ui.theme.QuickMathsTheme
+import java.util.Locale
 
 class MainActivity : ComponentActivity() {
     private val db by lazy {
@@ -42,7 +43,7 @@ class MainActivity : ComponentActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        updateLocale();
         installSplashScreen();
 
         setContent {
@@ -56,5 +57,12 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+    }
+
+    fun updateLocale() {
+        val deviceLocale = Locale.getDefault();
+        val config = resources.configuration;
+        config.setLocale(deviceLocale);
+        resources.updateConfiguration(config, resources.displayMetrics);
     }
 }
