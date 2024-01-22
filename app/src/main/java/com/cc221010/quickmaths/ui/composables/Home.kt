@@ -62,7 +62,7 @@ fun Home(mainViewModel:mainViewModel, navController:NavController) {
             ) {
                 Text(
                     text="QuickMaths",
-                    fontSize = 40.sp,
+                    fontSize = 30.sp,
                     fontWeight = FontWeight(700),
                     color = Color.White,
                     modifier = Modifier.padding(start = 25.dp)
