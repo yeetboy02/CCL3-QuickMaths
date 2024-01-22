@@ -29,9 +29,11 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Shadow
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -45,11 +47,13 @@ import com.cc221010.quickmaths.ui.gameViewModel
 import com.cc221010.quickmaths.ui.mainViewModel
 import java.time.LocalDateTime
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalComposeUiApi::class)
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun AddScore(mainViewModel:mainViewModel, gameViewModel:gameViewModel, navController:NavController) {
     val gameState = gameViewModel.gameViewState.collectAsState();
+
+    val keyboardController = LocalSoftwareKeyboardController.current;
 
     val totalPoints by remember { mutableStateOf(gameState.value.totalPoints) };
     var name by rememberSaveable(stateSaver = TextFieldValue.Saver) { mutableStateOf(TextFieldValue("")) };
@@ -186,6 +190,7 @@ fun AddScore(mainViewModel:mainViewModel, gameViewModel:gameViewModel, navContro
                         nameEmptyError = true;
                     }
                     else {
+                        keyboardController?.hide();
                         nameEmptyError = false;
                         mainViewModel.addScore(score(name = name.text, points = totalPoints, date = LocalDateTime.now()));
                         navController.navigate(Screen.Highscores.route);
