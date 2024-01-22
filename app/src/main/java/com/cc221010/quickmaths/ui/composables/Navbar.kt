@@ -114,7 +114,7 @@ fun BottomNavigationBar(navController:NavHostController, selectedScreen:Screen) 
                     selected = (selectedScreen == Screen.Highscores),
                     onClick = { navController.navigate(Screen.Highscores.route) },
                     icon = { Icon(painter = painterResource(id = R.drawable.highscore), contentDescription = "", modifier = Modifier
-                        .width(45.dp)
+                        .width(35.dp)
                         .height(45.dp), tint = MaterialTheme.colorScheme.onPrimary) },
                     colors = NavigationBarItemDefaults.colors(indicatorColor = MaterialTheme.colorScheme.tertiary),
                 )
