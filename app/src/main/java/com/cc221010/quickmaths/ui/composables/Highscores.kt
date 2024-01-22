@@ -34,6 +34,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -65,7 +66,9 @@ fun Highscores(mainViewModel:mainViewModel) {
             ) {
                 Card(
                     colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondary),
-                    modifier = Modifier.fillMaxSize().padding(start = 10.dp, end = 10.dp, top = 10.dp, bottom = 10.dp)
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(start = 10.dp, end = 10.dp, top = 10.dp, bottom = 10.dp)
                 ) {
                     Row(
                         modifier = Modifier
@@ -120,7 +123,7 @@ fun Highscores(mainViewModel:mainViewModel) {
                                         .height(27.dp)
                                         .padding(start = 10.dp, top = 3.dp),
                                     painter = painterResource(id = R.drawable.edit),
-                                    contentDescription = "",
+                                    contentDescription = stringResource(R.string.edit),
                                     tint = MaterialTheme.colorScheme.tertiary
                                 )
                             }
@@ -182,7 +185,7 @@ fun Highscores(mainViewModel:mainViewModel) {
                                 ) {
                                     Icon(
                                         painter = painterResource(id = R.drawable.delete),
-                                        contentDescription = "",
+                                        contentDescription = stringResource(R.string.delete),
                                         tint = MaterialTheme.colorScheme.primary,
                                         modifier = Modifier
                                             .width(40.dp)

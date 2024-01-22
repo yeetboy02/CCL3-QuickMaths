@@ -32,6 +32,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontWeight
@@ -98,7 +99,7 @@ fun Home(mainViewModel:mainViewModel, navController:NavController) {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "Last Score:",
+                text = stringResource(R.string.last_score) + ":",
                 modifier = Modifier.padding(bottom = 20.dp),
                 color = MaterialTheme.colorScheme.secondary,
                 fontSize = 30.sp
@@ -135,7 +136,7 @@ fun Home(mainViewModel:mainViewModel, navController:NavController) {
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Text(
-                        text = state.value.lastScore!!.points.toString() + " Points",
+                        text = state.value.lastScore!!.points.toString() + " " + stringResource(R.string.points),
                         fontSize = 30.sp,
                         fontWeight = FontWeight(700),
                         color = MaterialTheme.colorScheme.background,
@@ -190,7 +191,7 @@ fun Home(mainViewModel:mainViewModel, navController:NavController) {
                     .padding(bottom = 10.dp),
             ) {
                 Text(
-                    text = "New Game",
+                    text = stringResource(R.string.new_game),
                     fontSize = 35.sp,
                     fontWeight = FontWeight(600),
                     color = MaterialTheme.colorScheme.onPrimary,

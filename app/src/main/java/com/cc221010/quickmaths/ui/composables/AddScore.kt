@@ -35,6 +35,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -43,6 +44,7 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.cc221010.quickmaths.R
 import com.cc221010.quickmaths.data.models.score
 import com.cc221010.quickmaths.ui.gameViewModel
 import com.cc221010.quickmaths.ui.mainViewModel
@@ -71,7 +73,7 @@ fun AddScore(mainViewModel:mainViewModel, gameViewModel:gameViewModel, navContro
         ) {
             Text(
                 modifier = Modifier.padding(start = 15.dp),
-                text = "Save Score",
+                text = stringResource(R.string.save_score),
                 fontSize = 35.sp,
                 color = MaterialTheme.colorScheme.secondary
             )
@@ -81,7 +83,10 @@ fun AddScore(mainViewModel:mainViewModel, gameViewModel:gameViewModel, navContro
             horizontalArrangement = Arrangement.Center
         ) {
             Card(
-                modifier = Modifier.fillMaxWidth().height(180.dp).padding(start = 25.dp, top = 30.dp, end = 25.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(180.dp)
+                    .padding(start = 25.dp, top = 30.dp, end = 25.dp),
                 backgroundColor = MaterialTheme.colorScheme.secondary,
                 shape = RoundedCornerShape(20),
                 border = BorderStroke(4.dp, MaterialTheme.colorScheme.tertiary)
@@ -95,7 +100,7 @@ fun AddScore(mainViewModel:mainViewModel, gameViewModel:gameViewModel, navContro
                         horizontalArrangement = Arrangement.Center
                     ) {
                         Text(
-                            text = totalPoints.toString() + " Points",
+                            text = totalPoints.toString() + " " + stringResource(R.string.points),
                             fontSize = 25.sp,
                             color = MaterialTheme.colorScheme.background,
                             fontWeight = FontWeight(700),
@@ -110,7 +115,9 @@ fun AddScore(mainViewModel:mainViewModel, gameViewModel:gameViewModel, navContro
                     }
                     Row() {
                         Card(
-                            modifier = Modifier.fillMaxWidth().padding(start = 20.dp, top = 10.dp, end = 20.dp),
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(start = 20.dp, top = 10.dp, end = 20.dp),
                             backgroundColor = MaterialTheme.colorScheme.onPrimary,
                             shape = RoundedCornerShape(20)
                         ) {
@@ -128,7 +135,7 @@ fun AddScore(mainViewModel:mainViewModel, gameViewModel:gameViewModel, navContro
                                 value = name,
                                 placeholder = {
                                     Text(
-                                        text = "Name",
+                                        text = stringResource(R.string.name),
                                         fontSize = 30.sp,
                                         color = MaterialTheme.colorScheme.background,
                                         style = TextStyle(
@@ -178,7 +185,7 @@ fun AddScore(mainViewModel:mainViewModel, gameViewModel:gameViewModel, navContro
                     ) {
                         if (nameEmptyError) {
                             Text(
-                                text = "The name can't be empty!",
+                                text = stringResource(R.string.name_empty),
                                 color = MaterialTheme.colorScheme.tertiary,
                                 fontSize = 15.sp
                             )
@@ -188,7 +195,9 @@ fun AddScore(mainViewModel:mainViewModel, gameViewModel:gameViewModel, navContro
             }
         }
         Row(
-            modifier = Modifier.fillMaxWidth().padding(top = 35.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 35.dp),
             horizontalArrangement = Arrangement.Center
         ) {
             Button(
@@ -211,7 +220,7 @@ fun AddScore(mainViewModel:mainViewModel, gameViewModel:gameViewModel, navContro
                     .padding(bottom = 10.dp),
             ) {
                 Text(
-                    text = "AddScore",
+                    text = stringResource(R.string.add_score),
                     fontSize = 35.sp,
                     fontWeight = FontWeight(600),
                     color = MaterialTheme.colorScheme.onPrimary,

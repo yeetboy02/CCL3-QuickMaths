@@ -45,6 +45,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -53,6 +54,7 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.cc221010.quickmaths.R
 import com.cc221010.quickmaths.ui.gameViewModel
 import com.cc221010.quickmaths.ui.mainViewModel
 import kotlinx.coroutines.delay
@@ -80,33 +82,44 @@ fun Game(gameViewModel:gameViewModel, navController:NavController) {
 
         Column() {
             Row(
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
                     .padding(start = 10.dp, top = 10.dp, bottom = 12.dp)
             ) {
                 Text(
-                    text = "Total Points: " + gameState.value.totalPoints.toString(),
+                    text = stringResource(R.string.total_points) + ": " + gameState.value.totalPoints.toString(),
                     fontSize = 30.sp,
                     color = MaterialTheme.colorScheme.primary
                 )
             }
             Row(
-                modifier = Modifier.fillMaxWidth().height(1.dp).background(Color.Transparent)
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(1.dp)
+                    .background(Color.Transparent)
                     .shadow(elevation = 5.dp)
             ) {
 
             }
             Row(
-                modifier = Modifier.fillMaxWidth().padding(top = 24.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 24.dp),
                 horizontalArrangement = Arrangement.Center
             ) {
                 Card(
-                    modifier = Modifier.fillMaxWidth().height(130.dp)
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(130.dp)
                         .padding(start = 25.dp, end = 25.dp),
                     shape = RoundedCornerShape(20),
                     backgroundColor = MaterialTheme.colorScheme.tertiary
                 ) {
                     Card(
-                        modifier = Modifier.fillMaxWidth().height(123.dp).padding(bottom = 7.dp),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(123.dp)
+                            .padding(bottom = 7.dp),
                         shape = RoundedCornerShape(20),
                         backgroundColor = MaterialTheme.colorScheme.primary
                     ) {
@@ -122,7 +135,7 @@ fun Game(gameViewModel:gameViewModel, navController:NavController) {
                                     horizontalAlignment = Alignment.CenterHorizontally
                                 ) {
                                     Text(
-                                        text = "Points",
+                                        text = stringResource(R.string.points),
                                         fontSize = 20.sp,
                                         fontWeight = FontWeight(400),
                                         color = MaterialTheme.colorScheme.tertiary
@@ -133,7 +146,7 @@ fun Game(gameViewModel:gameViewModel, navController:NavController) {
                                     horizontalAlignment = Alignment.CenterHorizontally
                                 ) {
                                     Text(
-                                        text = "Time",
+                                        text = stringResource(R.string.time),
                                         fontSize = 20.sp,
                                         fontWeight = FontWeight(400),
                                         color = MaterialTheme.colorScheme.tertiary
@@ -169,7 +182,9 @@ fun Game(gameViewModel:gameViewModel, navController:NavController) {
                 }
             }
             Row(
-                modifier = Modifier.fillMaxWidth().padding(top = 20.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 20.dp),
                 horizontalArrangement = Arrangement.Center
             ) {
                 Card(
@@ -182,15 +197,19 @@ fun Game(gameViewModel:gameViewModel, navController:NavController) {
                     backgroundColor = MaterialTheme.colorScheme.secondary
                 ) {
                     Column(
-                        modifier = Modifier.fillMaxSize().padding(bottom = 30.dp),
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(bottom = 30.dp),
                         verticalArrangement = Arrangement.Center
                     ) {
                         Row(
-                            modifier = Modifier.fillMaxWidth().padding(bottom = 20.dp),
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(bottom = 20.dp),
                             horizontalArrangement = Arrangement.Center
                         ) {
                             Text(
-                                text = "Question " + (gameState.value.questionsAnswered + 1).toString(),
+                                text = stringResource(R.string.question) + " " + (gameState.value.questionsAnswered + 1).toString(),
                                 fontSize = 20.sp,
                                 color = MaterialTheme.colorScheme.background,
                                 fontWeight = FontWeight(700),
@@ -227,7 +246,9 @@ fun Game(gameViewModel:gameViewModel, navController:NavController) {
                 }
             }
             Row(
-                modifier = Modifier.fillMaxWidth().padding(start = 25.dp, end = 25.dp, top = 25.dp)
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 25.dp, end = 25.dp, top = 25.dp)
             ) {
                 if (answerCorrect == null) {
                     Card(
@@ -258,7 +279,7 @@ fun Game(gameViewModel:gameViewModel, navController:NavController) {
                             value = answer,
                             placeholder = {
                                 Text(
-                                    text = "Answer...",
+                                    text = stringResource(R.string.answer),
                                     fontSize = 30.sp,
                                     color = MaterialTheme.colorScheme.background,
                                     style = TextStyle(
@@ -300,7 +321,9 @@ fun Game(gameViewModel:gameViewModel, navController:NavController) {
                             backgroundColor = MaterialTheme.colorScheme.tertiary
                         ) {
                             Card(
-                                modifier = Modifier.fillMaxWidth().padding(bottom = 5.dp),
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(bottom = 5.dp),
                                 backgroundColor = MaterialTheme.colorScheme.primary,
                                 shape = RoundedCornerShape(20)
                             ) {
@@ -314,7 +337,7 @@ fun Game(gameViewModel:gameViewModel, navController:NavController) {
                                         horizontalAlignment = Alignment.CenterHorizontally
                                     ) {
                                         Text(
-                                            text = "Your Answer",
+                                            text = stringResource(R.string.your_answer),
                                             fontSize = 20.sp,
                                             color = MaterialTheme.colorScheme.tertiary,
                                             fontWeight = FontWeight(600)
@@ -340,7 +363,7 @@ fun Game(gameViewModel:gameViewModel, navController:NavController) {
                                                 Icon(
                                                     modifier = Modifier.height(37.dp),
                                                     imageVector = Icons.Default.Check,
-                                                    contentDescription = "",
+                                                    contentDescription = stringResource(R.string.correct),
                                                     tint = MaterialTheme.colorScheme.onError
                                                 )
                                             }
@@ -348,7 +371,7 @@ fun Game(gameViewModel:gameViewModel, navController:NavController) {
                                                 Icon (
                                                     modifier = Modifier.height(37.dp),
                                                     imageVector = Icons.Default.Clear,
-                                                    contentDescription = "",
+                                                    contentDescription = stringResource(R.string.incorrect),
                                                     tint = MaterialTheme.colorScheme.error
                                                 )
                                             }
@@ -360,7 +383,7 @@ fun Game(gameViewModel:gameViewModel, navController:NavController) {
                                             horizontalAlignment = Alignment.CenterHorizontally
                                         ) {
                                             Text(
-                                                text =  "Correct Answer",
+                                                text = stringResource(R.string.correct_answer),
                                                 fontSize = 20.sp,
                                                 color = MaterialTheme.colorScheme.tertiary,
                                                 fontWeight = FontWeight(600)
@@ -405,7 +428,7 @@ fun Game(gameViewModel:gameViewModel, navController:NavController) {
                                     .padding(bottom = 10.dp),
                             ) {
                                 Text(
-                                    text = "Continue",
+                                    text = stringResource(R.string.continueText),
                                     fontSize = 35.sp,
                                     fontWeight = FontWeight(600),
                                     color = MaterialTheme.colorScheme.onPrimary,

@@ -29,6 +29,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Color.Companion.Red
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -105,7 +106,9 @@ fun BottomNavigationBar(navController:NavHostController, selectedScreen:Screen) 
                 NavigationBarItem(
                     selected = (selectedScreen == Screen.Home),
                     onClick = { navController.navigate(Screen.Home.route) },
-                    icon = { Icon(painter = painterResource(id = R.drawable.home), contentDescription = "", modifier = Modifier
+                    icon = { Icon(painter = painterResource(id = R.drawable.home), contentDescription = stringResource(
+                        R.string.home
+                    ), modifier = Modifier
                         .width(45.dp)
                         .height(45.dp), tint = MaterialTheme.colorScheme.onPrimary) },
                     colors = NavigationBarItemDefaults.colors(indicatorColor = MaterialTheme.colorScheme.tertiary),
@@ -113,7 +116,9 @@ fun BottomNavigationBar(navController:NavHostController, selectedScreen:Screen) 
                 NavigationBarItem(
                     selected = (selectedScreen == Screen.Highscores),
                     onClick = { navController.navigate(Screen.Highscores.route) },
-                    icon = { Icon(painter = painterResource(id = R.drawable.highscore), contentDescription = "", modifier = Modifier
+                    icon = { Icon(painter = painterResource(id = R.drawable.highscore), contentDescription = stringResource(
+                        R.string.highscores
+                    ), modifier = Modifier
                         .width(35.dp)
                         .height(45.dp), tint = MaterialTheme.colorScheme.onPrimary) },
                     colors = NavigationBarItemDefaults.colors(indicatorColor = MaterialTheme.colorScheme.tertiary),

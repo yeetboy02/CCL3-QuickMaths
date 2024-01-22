@@ -71,7 +71,7 @@ fun editModal(mainViewModel:mainViewModel) {
                         horizontalArrangement = Arrangement.Center
                     ) {
                         Text(
-                            text = "Edit Name",
+                            text = stringResource(R.string.edit_name),
                             fontSize = 30.sp,
                             color = MaterialTheme.colorScheme.background,
                             style = TextStyle(
@@ -91,7 +91,7 @@ fun editModal(mainViewModel:mainViewModel) {
                     ) {
                         Column() {
                             Text(
-                                text = "Enter new Name",
+                                text = stringResource(R.string.enter_new_name),
                                 fontSize = 20.sp,
                                 color = MaterialTheme.colorScheme.background,
                                 modifier = Modifier.padding(bottom = 7.dp),
@@ -143,7 +143,7 @@ fun editModal(mainViewModel:mainViewModel) {
                             }
                             if (nameEmptyError) {
                                 Text(
-                                    text = "The name can't be empty!",
+                                    text = stringResource(R.string.name_empty),
                                     color = MaterialTheme.colorScheme.tertiary,
                                     fontSize = 15.sp
                                 )
@@ -189,7 +189,7 @@ fun editModal(mainViewModel:mainViewModel) {
                                     .padding(bottom = 5.dp),
                             ) {
                                 Text(
-                                    text = "Save Changes",
+                                    text = stringResource(R.string.save_changes),
                                     fontSize = 20.sp,
                                     fontWeight = FontWeight(600),
                                     color = MaterialTheme.colorScheme.onPrimary,

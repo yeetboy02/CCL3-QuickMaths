@@ -50,16 +50,20 @@ fun deleteModal(mainViewModel:mainViewModel) {
         AlertDialog(
             onDismissRequest = { mainViewModel.closeDeleteModal(false) },
             backgroundColor = MaterialTheme.colorScheme.secondary,
-            modifier = Modifier.width(305.dp).border(4.dp, MaterialTheme.colorScheme.tertiary, shape = RoundedCornerShape(20)),
+            modifier = Modifier
+                .width(305.dp)
+                .border(4.dp, MaterialTheme.colorScheme.tertiary, shape = RoundedCornerShape(20)),
             shape = RoundedCornerShape(20),
             text = {
                 Column() {
                     Row(
-                        modifier = Modifier.fillMaxWidth().padding(bottom = 5.dp),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(bottom = 5.dp),
                         horizontalArrangement = Arrangement.Center
                     ) {
                         Text(
-                            text = "Delete ",
+                            text = stringResource(R.string.delete) + " ",
                             fontSize = 30.sp,
                             color = MaterialTheme.colorScheme.tertiary,
                             style = TextStyle(
@@ -96,11 +100,13 @@ fun deleteModal(mainViewModel:mainViewModel) {
                         )
                     }
                     Row(
-                        modifier = Modifier.fillMaxWidth().padding(bottom = 5.dp),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(bottom = 5.dp),
                         horizontalArrangement = Arrangement.Center
                     ) {
                         Text(
-                            text = state.value.currEditScore!!.points.toString() + " Points",
+                            text = state.value.currEditScore!!.points.toString() + " " + stringResource(R.string.points),
                             fontSize = 35.sp,
                             color = MaterialTheme.colorScheme.background,
                             style = TextStyle(
@@ -132,14 +138,19 @@ fun deleteModal(mainViewModel:mainViewModel) {
             },
             buttons = {
                 Row (
-                    modifier = Modifier.fillMaxWidth().height(84.dp).padding(start = 10.dp, end = 10.dp, bottom = 20.dp),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(84.dp)
+                        .padding(start = 10.dp, end = 10.dp, bottom = 20.dp),
                 ) {
                     Column(
                         modifier = Modifier.fillMaxWidth(0.5f),
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Card(
-                            modifier = Modifier.width(136.dp).height(57.dp)
+                            modifier = Modifier
+                                .width(136.dp)
+                                .height(57.dp)
                                 .clip(RoundedCornerShape(50)),
                             colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.onPrimary),
                             shape = RoundedCornerShape(50),
@@ -154,7 +165,7 @@ fun deleteModal(mainViewModel:mainViewModel) {
                                     .padding(bottom = 5.dp),
                             ) {
                                 Text(
-                                    text = "Delete",
+                                    text = stringResource(R.string.delete),
                                     fontSize = 20.sp,
                                     fontWeight = FontWeight(600),
                                     color = MaterialTheme.colorScheme.onPrimary,
@@ -174,7 +185,9 @@ fun deleteModal(mainViewModel:mainViewModel) {
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Card(
-                            modifier = Modifier.width(136.dp).height(57.dp),
+                            modifier = Modifier
+                                .width(136.dp)
+                                .height(57.dp),
                             colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.tertiary),
                             shape = RoundedCornerShape(50),
                         ) {
@@ -188,7 +201,7 @@ fun deleteModal(mainViewModel:mainViewModel) {
                                     .padding(bottom = 5.dp),
                             ) {
                                 Text(
-                                    text = "Cancel",
+                                    text = stringResource(R.string.cancel),
                                     fontSize = 20.sp,
                                     fontWeight = FontWeight(600),
                                     color = MaterialTheme.colorScheme.tertiary,
